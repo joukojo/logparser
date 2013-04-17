@@ -1,0 +1,4 @@
+logparser
+=========
+
+Akka based logparser
