@@ -12,14 +12,17 @@ object App {
     logger.info("Hi!")
     val fileName = args(0)
     val printerActor = PrinterActor
-    val slowestRequestActor = SlowestRequestActor 
-    val actors = List[Actor](printerActor)
+     
+    val actors = List[Actor](SlowestRequestActor)
 
+    logger.debug("starting the actors")
     actors.foreach(actor => actor.start)
 
     val reader = new LogFileReader(fileName, actors)
 
     reader.process
+    
+    //FIXME add logic how to wait for ending of the actors and flushing the result to files
 
   }
 
