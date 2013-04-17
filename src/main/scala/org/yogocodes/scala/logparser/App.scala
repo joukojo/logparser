@@ -10,7 +10,7 @@ object App {
 
   def main(args: Array[String]) = {
     logger.info("Hi!")
-    val fileName = "/home/joukojo/workspace-scala//logparser/localhost_access_log.2013-04-16.log"
+    val fileName = args(0)
     val printerActor = PrinterActor
     val slowestRequestActor = SlowestRequestActor 
     val actors = List[Actor](printerActor)
