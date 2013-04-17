@@ -23,7 +23,7 @@ class LogFileReader(logFileName: String, actors: List[Actor]) {
 
       def readFile(reader: BufferedReader, count: Int): Int = {
 
-        if (count % 100 == 0) {
+        if (count % 1000 == 0) {
           logger.debug("read {} lines", count)
         }
         val line = reader.readLine();

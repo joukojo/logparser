@@ -11,7 +11,7 @@ object App {
   def main(args: Array[String]) = {
     logger.info("Hi!")
     val fileName = args(0)
-    val printerActor = PrinterActor
+    
 
     val actors = List[Actor](SlowestRequestActor)
 
