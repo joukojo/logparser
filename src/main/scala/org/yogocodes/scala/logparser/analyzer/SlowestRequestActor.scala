@@ -17,7 +17,9 @@ class SlowestRequestActor(parentActor: Actor) extends Actor {
         case line: String => {
           val part = line.substring(line.indexOf('['))
           val result = processLine(part)
-          results.append(result)
+          this.synchronized({
+            results.append(result)
+          })
 
           if (results.size > 900) {
             logger.warn("Clearing the results:{}", results.size)
