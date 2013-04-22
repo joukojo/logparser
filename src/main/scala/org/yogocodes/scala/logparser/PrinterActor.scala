@@ -10,7 +10,9 @@ object PrinterActor extends Actor {
         case line : String => {
           println("" + line)
         }
-        
+        case EndOfFile => {
+        	
+        }
       }
       
     }
