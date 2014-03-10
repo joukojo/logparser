@@ -11,6 +11,7 @@ class LogFileReader(logFileName: String, actors: List[Actor]) {
 
   val logger: Logger = LoggerFactory.getLogger(getClass())
   def getActors() = actors.toList
+  case object Stop
 
   def process() = {
 
@@ -41,7 +42,11 @@ class LogFileReader(logFileName: String, actors: List[Actor]) {
       }
       val totalLines = readFile(reader, 0)
       logger.debug("read all lines. total {} lines", totalLines)
-    }
 
+      actors.foreach(actor => {
+        actor ! Stop
+      })
+
+    }
   }
 }

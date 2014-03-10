@@ -10,10 +10,11 @@ object App {
 
   def main(args: Array[String]) = {
     logger.info("Hi!")
-    val fileName = "/home/joukojo/workspace-scala//logparser/localhost_access_log.2013-04-16.log"
+    val fileName = "/access.log"
     val printerActor = PrinterActor
-    val slowestRequestActor = SlowestRequestActor 
-    val actors = List[Actor](printerActor)
+    val slowestRequestActor = SlowestRequestActor
+    val countOccurrenceActor = CountOccurrenceActor
+    val actors = List[Actor](countOccurrenceActor)
 
     actors.foreach(actor => actor.start)
 
@@ -22,5 +23,4 @@ object App {
     reader.process
 
   }
-
 }
